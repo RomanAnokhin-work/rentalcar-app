@@ -15,9 +15,6 @@ export default function Header() {
           <li>
             <Link href="/catalog">Catalog</Link>
           </li>
-          <li>
-            <Link href="/catalog/:catalogId">Catalog by Id</Link>
-          </li>
         </ul>
       </nav>
     </header>
