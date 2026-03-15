@@ -1,5 +1,6 @@
 "use client";
 
+import CarsFilters from "@/components/CarFilters/CarsFilters";
 import CarsList from "@/components/CarsList/CarsList";
 import { useCarsStore } from "@/lib/store/carsStore";
 import { useEffect } from "react";
@@ -17,6 +18,7 @@ export default function Cars() {
 
   return (
     <>
+    <CarsFilters/>
       {cars.length > 0 && <CarsList cars={cars} />}
       {cars.length > 0 && page < totalPages && (
         <button onClick={loadMore}>Load more</button>

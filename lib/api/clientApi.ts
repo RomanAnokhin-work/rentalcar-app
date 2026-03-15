@@ -1,4 +1,4 @@
-import { Filters } from "@/types/filters";
+import { CarFilters } from "@/types/carfilters";
 import { instance } from "./api";
 import { Car } from "@/types/car";
 
@@ -8,7 +8,7 @@ interface CarsResponse {
   totalCars: number;
   totalPages: number;
 }
-interface GetCarsParams extends Filters {
+interface GetCarsParams extends CarFilters {
   page?: string;
   limit?: string;
 }

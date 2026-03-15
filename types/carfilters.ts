@@ -1,4 +1,4 @@
-export interface Filters {
+export interface CarFilters {
    brand?: string;
   rentalPrice?: string;
   minMileage?: string;

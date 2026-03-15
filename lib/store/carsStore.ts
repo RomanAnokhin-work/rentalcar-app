@@ -1,36 +1,44 @@
 import { Car } from "@/types/car";
-import { Filters } from "@/types/filters";
+import { CarFilters } from "@/types/carfilters";
 import { create } from "zustand";
-import { getCars } from "../api/clientApi";
+// import { getCars } from "../api/clientApi";
+import { getServerBrands, getServerCars } from "../api/serverApi";
 
 interface CarsStore {
   cars: Car[];
   favorites: string[];
-  filters: Filters;
+  filters: CarFilters;
   loading: boolean;
 
   page: number;
   totalPages: number;
 
+  brands: string[];
+
   setCars: (cars: Car[]) => void;
   clearCars: () => void;
 
-  setFilters: (filters: Filters) => void;
+  setFilters: (filters: CarFilters) => void;
+  setBrands: (brands:string[])=> void;
 
   toggleFavorite: (id: string) => void;
   setLoading: (value: boolean) => void;
   fetchCars: () => Promise<void>;
   loadMore: () => Promise<void>;
+  fetchBrands: () => Promise<void>;
 }
 
 export const useCarsStore = create<CarsStore>((set, get) => ({
   cars: [],
   favorites: [],
-  filters: {} as Filters,
+  filters: {} as CarFilters,
   loading: false,
 
   page: 1,
   totalPages: 1,
+  brands: [],
+
+
 
   setCars: (cars) => set({ cars }),
 
@@ -41,6 +49,8 @@ export const useCarsStore = create<CarsStore>((set, get) => ({
   get().fetchCars();
 },
   setLoading: (value) => set({ loading: value }),
+
+  setBrands: (brands) => set({ brands }),
 
   toggleFavorite: (id) =>
     set((state) => ({
@@ -54,7 +64,7 @@ export const useCarsStore = create<CarsStore>((set, get) => ({
     set({ cars: [], loading: true });
 
     try {
-      const data = await getCars(filters);
+      const data = await getServerCars(filters);
       console.log("fetchCars data", data);
 
       set({ cars: data.cars,
@@ -75,7 +85,7 @@ export const useCarsStore = create<CarsStore>((set, get) => ({
     set({ loading: true });
 
     try {
-      const data = await getCars({ ...filters, page: nextPage.toString() });
+      const data = await getServerCars({ ...filters, page: nextPage.toString() });
 
       set({
         cars: [...cars, ...data.cars],
@@ -85,4 +95,8 @@ export const useCarsStore = create<CarsStore>((set, get) => ({
       set({ loading: false });
     }
   },
+  fetchBrands: async () => {
+  const data = await getServerBrands();
+  set({ brands: data });
+},
 }));
