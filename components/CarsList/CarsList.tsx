@@ -11,7 +11,7 @@ export default function CarsList({ cars }: CarsListProps) {
       {cars.map((car: Car) => (
         <li key={car.id}>
           <h2>{car.model}</h2>
-          <Link href={`/cars/${car.id}`}>View details</Link>
+          <Link href={`/catalog/${car.id}`}>View details</Link>
         </li>
       ))}
     </ul>

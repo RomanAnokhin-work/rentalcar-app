@@ -13,7 +13,9 @@ interface GetCarsParams extends Filters {
   limit?: string;
 }
 
-export async function getCars(params: GetCarsParams): Promise<CarsResponse> {
+export async function getServerCars(
+  params: GetCarsParams,
+): Promise<CarsResponse> {
   const { data } = await instance.get<CarsResponse>("/cars", {
     params,
   });
