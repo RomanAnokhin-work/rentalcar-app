@@ -26,6 +26,7 @@ interface CarsStore {
   fetchCars: () => Promise<void>;
   loadMore: () => Promise<void>;
   fetchBrands: () => Promise<void>;
+  resetFilters: () =>void;
 }
 
 export const useCarsStore = create<CarsStore>((set, get) => ({
@@ -99,4 +100,12 @@ export const useCarsStore = create<CarsStore>((set, get) => ({
   const data = await getServerBrands();
   set({ brands: data });
 },
+ resetFilters: () => set({ 
+    filters: {
+      brand: "",
+      rentalPrice: "",
+      minMileage: "",
+      maxMileage: "",
+    }
+  }),
 }));

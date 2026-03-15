@@ -7,6 +7,7 @@ export default function CarsFilters(){
   const [activeSelect, setActiveSelect] = useState<"brand" | "price" | null>(null);;
       const setFilters = useCarsStore((state) => state.setFilters);
 const { brands, fetchBrands } = useCarsStore();
+const resetFilters = useCarsStore((state)=>state.resetFilters)
 
   const [brand, setBrand] = useState("");
   const [rentalPrice, setRentalPrice] = useState("");
@@ -17,12 +18,7 @@ const { brands, fetchBrands } = useCarsStore();
   fetchBrands();
 }, [fetchBrands]);
 
-  const resetFilters = () => {
-    setBrand("");
-    setRentalPrice("");
-    setMinMileage("");
-    setMaxMileage("");
-  };
+  
 
   const handleSearch = () => {
     setFilters({
