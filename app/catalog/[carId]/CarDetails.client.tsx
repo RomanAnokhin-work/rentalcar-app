@@ -36,7 +36,7 @@ export default function CarDetails() {
     { label: "Engine Size", value: car.engineSize, icon: "/icons.svg#icon-gear" }
   ];
 
-  const accessories = car.accessories;
+  const accessoriesAndFunc = [...car.accessories,...car.functionalities];
 
   return (
     <div className={css.container}>
@@ -110,7 +110,7 @@ export default function CarDetails() {
           <div className={css.accessoriesSection}>
             <h3 className={css.sectionTitle}>Accessories and functionalities:</h3>
             <ul className={css.accessoriesList}>
-              {accessories.map((accessory, index) => (
+              {accessoriesAndFunc.map((accessory, index) => (
                 <li key={index} className={css.accessoryItem}>
                   <svg className={css.icon}>
                     <use href="/icons.svg#icon-check-circle" />
