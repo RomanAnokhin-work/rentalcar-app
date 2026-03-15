@@ -1,0 +1,102 @@
+.list {
+    display: grid;
+      grid-template-columns: repeat(5, 1fr);
+      row-gap: 48px;
+      column-gap: 32px;
+      list-style: none;
+
+}
+.item {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+.img {
+    border-radius: 14px;
+width: 276px;
+height: 268px;
+}
+.info_wrapper{
+    width: 276px;
+height: 68px;
+display: flex;
+flex-direction: column;
+gap: 8px;
+}
+.title_wrapper{
+    display: flex;
+    flex-direction: row;
+    gap: 87px
+}
+.title {
+    font-family: var(--font-family);
+font-weight: 500;
+font-size: 16px;
+line-height: 125%;
+color: var(--main)
+}
+.highlight {
+    color: var(--button);
+}
+.price {
+    font-family: var(--font-family);
+font-weight: 500;
+font-size: 16px;
+line-height: 125%;
+color: var(--main);
+}
+.info {
+    font-family: var(--font-family);
+font-weight: 400;
+font-size: 12px;
+line-height: 133%;
+color: var(--gray)
+}
+
+.readMore_button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+border-radius: 12px;
+padding: 12px 99px;
+width: 276px;
+height: 44px;
+background: var(--button);
+text-align:center;
+font-family: var(--font-family);
+font-weight: 600;
+font-size: 16px;
+line-height: 125%;
+color: var(--white);
+}
+
+.readMore_button:hover{
+    background-color: var(--button-hover);
+}
+
+.img_wrapper {
+  position: relative;
+}
+
+.favorite_button {
+  position: absolute;
+  top: 16px;
+  right: 26px;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+  z-index: 10;
+  transition: transform 0.2s ease;
+}
+
+.favorite_button:hover {
+  transform: scale(1.1);
+}
+
+.favorite_icon {
+  width: 16px;
+  height: 16px;
+  stroke: var(--white);
+  transition: all 0.2s ease;
+}

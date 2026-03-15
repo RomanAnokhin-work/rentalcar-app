@@ -1,0 +1,68 @@
+.container {
+    padding: 32px;
+    display: flex;
+    flex-direction: column;
+    gap:24px
+}
+
+.title{
+    font-family: var(--font-family);
+font-weight: 600;
+font-size: 20px;
+line-height: 120%;
+color: var(--main);
+}
+.text {
+    font-family: var(--font-family);
+font-weight: 500;
+font-size: 16px;
+line-height: 125%;
+color: var(--gray);
+}
+.form {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+.form_row {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+
+}
+.input_name {
+    border-radius: 12px;
+padding: 12px 20px;
+width: 576px;
+height: 48px;
+background: var(--inputs);
+}
+.input_comment {
+    margin-top: 16px;
+    border-radius: 12px;
+padding: 12px 20px 56px;
+width: 576px;
+height: 88px;
+background: var(--inputs);
+}
+
+.submit_button {
+    margin-top: 24px;
+    margin-left: 210px;
+    border-radius: 12px;
+padding: 12px 51px;
+width: 156px;
+height: 44px;
+background: var(--button);
+font-family: var(--font-family);
+font-weight: 600;
+font-size: 16px;
+line-height: 125%;
+color: var(--white);
+text-align: center;
+}
+
+.submit_button:hover {
+    background-color: var(--button-hover);
+}
