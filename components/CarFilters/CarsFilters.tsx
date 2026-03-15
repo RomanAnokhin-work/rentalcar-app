@@ -17,6 +17,13 @@ const { brands, fetchBrands } = useCarsStore();
   fetchBrands();
 }, [fetchBrands]);
 
+  const resetFilters = () => {
+    setBrand("");
+    setRentalPrice("");
+    setMinMileage("");
+    setMaxMileage("");
+  };
+
   const handleSearch = () => {
     setFilters({
       brand,
@@ -24,6 +31,7 @@ const { brands, fetchBrands } = useCarsStore();
       minMileage,
       maxMileage,
     });
+    resetFilters();
   };
   
 
